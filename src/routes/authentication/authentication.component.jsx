@@ -5,8 +5,10 @@ import {
 import { async } from "@firebase/util";
 
 import SignUpForm from "../../components/sign-up/sign-up-form.component";
+import SignInForm from "../../components/sign-in-form/sign-in-form.component";
+import './authentication.styles.scss';
 
-const SignIn = () => {
+const Authentication = () => {
     const logGoogleUser = async () => {
         const { user } = await signInWithGooglePopup();
         console.log(user);
@@ -15,14 +17,11 @@ const SignIn = () => {
     }
 
     return (
-        <div>
-            <h1>Sign IN Page</h1>
-            <button onClick={logGoogleUser}>
-                Sign In with Google Popup
-            </button>
+        <div className='authentication-container'>
+            <SignInForm />
             <SignUpForm />
         </div>
     );
 }
 
-export default SignIn;
+export default Authentication;
